@@ -1,7 +1,7 @@
 {
-  "name": "lets-get-functional",
+  "name": "lets-get-functional gagecantrelle",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Getting jiggy with higher order functions",
   "main": "index.js",
   "directories": {
