@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require("underpants-khamal22");
+var _ = require("underpants-gagecantrelle");
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -162,38 +162,38 @@ var friendFirstLetterCount = function (array, customers, letter) {
 
 var friendsCount = function (array, name) {
   //using map function to craete a new array 
-if(!name){
-  return[];
-}
+  if (!name) {
+    return [];
+  }
   // this is a function that find s customers names that 
-  
-// created a varible that will equal a array of customers names who are friend with the given name 
-// underscore.map will loop through the given array of customers 
+
+  // created a varible that will equal a array of customers names who are friend with the given name 
+  // underscore.map will loop through the given array of customers 
   var update = [];
-  var result = _.map(array, function(customer, index, arr){
+  var result = _.map(array, function (customer, index, arr) {
     //loop through the current customers friends list 
-    for(var friend of customer.friends){
+    for (var friend of customer.friends) {
 
       var fname = friend.name.toLowerCase();
       var target = name.toLowerCase();
-    
 
-      if (fname === target){
+
+      if (fname === target) {
         console.log("test");
         return customer.name;
       }
     }
-    
+
   })
-for (var i = 0; i < result.length; i++){
-  if(result[i] != undefined){
-    update.push(result[i])
+  for (var i = 0; i < result.length; i++) {
+    if (result[i] != undefined) {
+      update.push(result[i])
+    }
   }
+  console.log(update);
+  return update;
 }
-console.log(update);
-return update;
-}
-;
+  ;
 
 var topThreeTags = function (array) {
 
