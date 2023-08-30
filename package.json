@@ -16,22 +16,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gagecantrelle/lets-get-functional.git"
+    "url": "https://github.com/khamal22/lets-get-functional.git"
   },
   "author": "jfraboni",
   "license": "CC",
   "bugs": {
-    "url": "https://github.com/gagecantrelle/lets-get-functional/issues"
+    "url": "https://github.com/khamal22/lets-get-functional/issues"
   },
-  "homepage": "https://github.com/gagecantrelle/lets-get-functional",
+  "homepage": "https://github.com/khamal22/lets-get-functional",
   "devDependencies": {
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "lodash": "^4.17.4",
-    "mocha": "^3.4.1",
     "sinon": "^2.2.0"
   },
   "dependencies": {
-    "underpants-gagecantrelle": "^1.0.0"
+    "mocha": "^10.2.0",
+    "underpants-khamal22": "^1.0.0"
   }
 }
