@@ -161,36 +161,39 @@ var friendFirstLetterCount = function (array, customers, letter) {
 };
 
 var friendsCount = function (array, name) {
-  //using map function to craete a new array 
-  if (!name) {
-    return [];
-  }
-  // this is a function that find s customers names that 
-
-  // created a varible that will equal a array of customers names who are friend with the given name 
-  // underscore.map will loop through the given array of customers 
+  //using map function to create a new array 
+  //create a empty array
   var update = [];
+  //check if the given name doesn't has a value
+  if (!name) {
+    //return update
+    return update;
+  }
+  //create a result variable that will be equal to the result of _.map which should be an array of names and undefined values
   var result = _.map(array, function (customer, index, arr) {
     //loop through the current customers friends list 
     for (var friend of customer.friends) {
+      //create to variable that represent the current friend name but lowerCase and the given name but lowerCase
+      var fname = friend.name.toLowerCase(); //friend name
+      var target = name.toLowerCase(); //given name or targeted name
 
-      var fname = friend.name.toLowerCase();
-      var target = name.toLowerCase();
-
-
+      //check if fname and target are the same
       if (fname === target) {
-        console.log("test");
+        //return current customer name
         return customer.name;
       }
     }
 
   })
+  //loop through the result array
   for (var i = 0; i < result.length; i++) {
+    //check if the current value is not undefined
     if (result[i] != undefined) {
+      //push the current value in to update 
       update.push(result[i])
     }
   }
-  console.log(update);
+  //return update
   return update;
 }
   ;
