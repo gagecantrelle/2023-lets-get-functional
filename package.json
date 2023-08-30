@@ -28,10 +28,10 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "lodash": "^4.17.4",
-    "mocha": "^3.4.1",
     "sinon": "^2.2.0"
   },
   "dependencies": {
+    "mocha": "^10.2.0",
     "underpants-khamal22": "^1.0.0"
   }
 }
