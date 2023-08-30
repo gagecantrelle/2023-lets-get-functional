@@ -138,7 +138,26 @@ var firstLetterCount = function (array, letter) {
 };
 
 var friendFirstLetterCount = function (array, customers, letter) {
+  //create a variable that is equal to zero
+  var count = 0;
+  //loop through the given array
+  for (var obj of array) {
+    if (obj.name.toLowerCase() === customers.toLowerCase()) {
+      //loop through current obj friends key
+      for (var friend of obj.friends) {
+        //create a variable that equal to the friend name but lowerCase
+        var name = friend.name.toLowerCase();
+        //check if the first character  in low is equal to the given letter but lowerCase
+        if (name[0] === letter.toLowerCase()) {
+          //increase count
+          count++;
+        }
+      }
+    }
 
+  }
+  //return count
+  return count;
 };
 
 var friendsCount = function (array, name) {
