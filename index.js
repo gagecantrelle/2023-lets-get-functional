@@ -98,16 +98,43 @@ var averageBalance = function (array) {
   var average = 0;
   //loop through the given array
   for (let i = 0; i < array.length; i++) {
-    //push the current balance in to the arr array
-    arr.push(array[i].balance);
+    //create a temporary variable that hold the current balance string
+    var temp = array[i].balance
+    //remove the first character  in the string ($)
+    temp = temp.slice(1);
+    //replace ',' with a empty string
+    temp = temp.replace(',', '');
+    //change the string into a number
+    temp = parseFloat(temp);
+    //push the temp in to the arr array
+    arr.push(temp);
+
+  }
+  //loop through arr
+  for (let i = 0; i < arr.length; i++) {
+    //set average to equal the current value + average 
+    average += arr[i];
   }
 
-  //return average
-  return average;
+  //return average divide by arr length
+  return average / arr.length;
 };
 
 var firstLetterCount = function (array, letter) {
-
+  //create a variable that is equal to 0
+  let count = 0;
+  //loop through the given array
+  for (var obj of array) {
+    //create a variable that equal to the current obj key.name but lowerCase
+    var low = obj.name.toLowerCase();
+    //check if the first character  in low is equal to the given letter but lowerCase
+    if (low[0] === letter.toLowerCase()) {
+      //increase count
+      count++;
+    }
+  }
+  //return count
+  return count;
 };
 
 var friendFirstLetterCount = function (array, customers, letter) {
