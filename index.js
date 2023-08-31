@@ -73,19 +73,21 @@ var oldestCustomer = function (array) {
 };
 
 var youngestCustomer = function (array) {
-  //create two empty arrays
-  var arr = [];
+  //create one empty arrays
   var customer = [];
-  //loop through the given array
-  for (let i = 0; i < array.length; i++) {
+  //create an variable that is array that hold mutiple arrays using reduce
+  var arr = _.reduce(array, function (cumulated, curr) {
     //push the name and age key values in the customer array
-    customer.push(array[i].name);
-    customer.push(array[i].age);
-    //push the current customer array in to the arr array
-    arr.push(customer);
+    customer.push(curr.name);
+    customer.push(curr.age);
+    //push the current customer array in to the cumulated array
+    cumulated.push(customer);
     //set customer array to be an empty array
     customer = [];
-  }
+    //return cumulated
+    return cumulated;
+  }, []);
+
   //sort the arr array by the highest number in the array in side of the array example    [['b', 2],['a', 1]] sort => [['a', 1],['b', 2]]
   arr = arr.sort((a, b) => { return a[1] - b[1] });
   //return the string of the first value in the array in the array
@@ -121,20 +123,18 @@ var averageBalance = function (array) {
 };
 
 var firstLetterCount = function (array, letter) {
-  //create a variable that is equal to 0
-  let count = 0;
-  //loop through the given array
-  for (var obj of array) {
+  //create a variable that use filter to create array 
+  var arr = _.filter(array, function (obj) {
     //create a variable that equal to the current obj key.name but lowerCase
     var low = obj.name.toLowerCase();
     //check if the first character  in low is equal to the given letter but lowerCase
     if (low[0] === letter.toLowerCase()) {
       //increase count
-      count++;
+      return low;
     }
-  }
-  //return count
-  return count;
+  });
+  //return arr
+  return arr.length;
 };
 
 var friendFirstLetterCount = function (array, customers, letter) {

@@ -1,6 +1,6 @@
 {
   "name": "lets-get-functional-gagecantrelle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Getting jiggy with higher order functions",
   "main": "index.js",
