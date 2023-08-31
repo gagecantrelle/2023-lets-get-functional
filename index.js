@@ -195,15 +195,72 @@ var friendsCount = function (array, name) {
   }
   //return update
   return update;
-}
-  ;
+};
 
 var topThreeTags = function (array) {
-
+  //create 3 variables that will hold a empty array, 0, empty string
+  var arr = [];
+  var top = 0;
+  var name = '';
+  //create a variable that will use reduce to create a object that will hold all the tags used by each customer
+  // and a value of how many times that tag been used;
+  var result = _.reduce(array, function (cumulated, current) {
+    //loop through the tags array
+    for (var tag of current.tags) {
+      //check if that tag is in the cumulated object
+      if (cumulated[tag]) {
+        //if so increase it value by one
+        cumulated[tag] += 1;
+        //run if false
+      } else {
+        //create that tag key in the cumulated object and give it a value of 1
+        cumulated[tag] = 1;
+      }
+    }
+    //return cumulated object
+    return cumulated;
+  }, {})
+  //loop 3 times 
+  for (let i = 0; i < 3; i++) {
+    //loop through the result object
+    for (let key in result) {
+      //check if the current tag is the most used one
+      if (top < result[key]) {
+        //if so set top and name variable to hold the current top tag
+        top = result[key]
+        name = key;
+      }
+    }
+    //push the tag name in to arr
+    arr.push(name)
+    //remove that tag from the result object
+    delete result[name];
+    //reset the name and top variable to be 0 and ''
+    name = '';
+    top = 0;
+  }
+  //return arr which should hold the top three tags
+  return arr;
 };
 
 var genderCount = function (array) {
+  //create result variable that will use reduce to create a object that hold keys that hold how many customer are what gender 
+  var result = _.reduce(array, function (cumulated, current) {
+    //check if that gender is in the cumulated object
+    if (cumulated[current.gender]) {
+      //if so increase it value by one
+      cumulated[current.gender] += 1;
+      //run if false
+    } else {
+      //create that tag key in the cumulated object and give it a value of 1
+      cumulated[current.gender] = 1;
+    }
 
+    //return cumulated object
+    return cumulated;
+  }, {})
+  //return result
+  return result
 };
 
 //////////////////////////////////////////////////////////////////////
